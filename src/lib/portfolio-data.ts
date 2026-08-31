@@ -58,6 +58,29 @@ export const projects: Project[] = [
     image: "calculator",
     imageAlt: "Concept visual of the AI Calculator desktop interface",
   },
+  {
+    number: "03",
+    label: "AI STUDY COMPANION",
+    title: "StudyMate AI",
+    summary:
+      "An AI-powered study companion that turns study material into clear explanations, summaries, and quick revision help for students.",
+    repository: "https://github.com/Anmolkumar108/StudyMate-AI",
+    stack: ["Python", "AI / LLM API", "Text Processing", "Git"],
+    features: [
+      "Ask study questions",
+      "Topic explanations",
+      "Notes summarisation",
+      "Quick revision help",
+    ],
+    problem:
+      "Students often lose time searching across notes, videos, and websites to understand one topic, and rarely get answers written at their own level.",
+    solution:
+      "StudyMate AI accepts a topic or question, sends it through an AI model with study-focused prompting, and returns structured explanations and short summaries a student can revise from directly.",
+    learned:
+      "Prompt design for study-oriented responses, handling and cleaning text input, and structuring an AI workflow around a single clear user goal.",
+    image: "studymate",
+    imageAlt: "Concept visual of the StudyMate AI study assistant interface",
+  },
 ];
 
 export const skillGroups = [
