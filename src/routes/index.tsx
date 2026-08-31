@@ -319,7 +319,7 @@ function Skills() {
       <SectionHeading number="02" title="Technology ecosystem" meta="Capabilities" />
       <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
         {skillGroups.map((group, index) => {
-          const Icon = skillIcons[index];
+          const Icon = skillIcons[index % skillIcons.length] ?? Code2;
           return (
             <article key={group.category} className="group min-h-52 bg-surface p-5 transition-colors hover:bg-secondary">
               <Icon className="size-5 text-primary transition-transform duration-300 group-hover:-translate-y-1" aria-hidden="true" />
