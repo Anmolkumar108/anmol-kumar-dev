@@ -129,6 +129,12 @@ export const education = [
   },
   {
     date: "2025",
+    title: "Advanced Diploma in Computer Applications (ADCA)",
+    place: "Council of Skill and Vocational Learning",
+    detail: "Certification in computer applications",
+  },
+  {
+    date: "2025",
     title: "Senior Secondary (XII)",
     place: "Janta High School, Sirari, Sheikhpura",
     detail: "Bihar School Examination Board · 65%",
