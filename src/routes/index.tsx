@@ -349,7 +349,12 @@ function Projects() {
 }
 
 function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
-  const image = project.image === "sanskari" ? sanskariImage : calculatorImage;
+  const image =
+    project.image === "sanskari"
+      ? sanskariImage
+      : project.image === "studymate"
+        ? studymateImage
+        : calculatorImage;
   return (
     <article className="group grid overflow-hidden border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-signal md:grid-cols-2">
       <div className={`flex flex-col justify-between p-6 sm:p-8 ${reverse ? "md:order-2" : ""}`}>
