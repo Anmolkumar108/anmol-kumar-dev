@@ -84,11 +84,40 @@ export const projects: Project[] = [
 ];
 
 export const skillGroups = [
-  { category: "Programming", skills: ["Python", "C", "C++"] },
-  { category: "Development", skills: ["HTML", "CSS", "JavaScript"] },
+  { category: "Programming", skills: ["Python", "C"] },
   { category: "Tools", skills: ["Git", "GitHub", "VS Code"] },
-  { category: "Data / Other", skills: ["SQLite", "MS Excel", "MS Word"] },
+  { category: "Data / Other", skills: ["MS Excel", "MS Word"] },
   { category: "Learning / Focus", skills: ["AI", "Machine Learning", "DSA"] },
+];
+
+export type Certification = {
+  title: string;
+  detail: string;
+  /** Place the image file in /public/certificates/ and reference it here. */
+  image?: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    title: "Secondary School Certificate",
+    detail: "2023",
+    image: "/certificates/secondary.jpg",
+  },
+  {
+    title: "Senior Secondary School Certificate",
+    detail: "2025",
+    image: "/certificates/senior-secondary.jpg",
+  },
+  {
+    title: "ADCA Certification",
+    detail: "Advanced Diploma in Computer Applications",
+    image: "/certificates/adca.jpg",
+  },
+  {
+    title: "College Hackathon Participation",
+    detail: "Sityog Institute of Technology",
+    image: "/certificates/hackathon.jpg",
+  },
 ];
 
 export const education = [
