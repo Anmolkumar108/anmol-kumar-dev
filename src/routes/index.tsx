@@ -21,6 +21,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import calculatorImage from "@/assets/projects/ai-calculator-showcase.jpg";
 import sanskariImage from "@/assets/projects/sanskari-ai-showcase.jpg";
+import studymateImage from "@/assets/projects/studymate-ai-showcase.jpg";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
