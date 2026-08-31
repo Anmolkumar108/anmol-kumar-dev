@@ -35,6 +35,8 @@ import {
   education,
   portfolioLinks,
   projects,
+  certifications,
+  type Certification,
   skillGroups,
   type Project,
 } from "@/lib/portfolio-data";
@@ -300,7 +302,7 @@ function About() {
         <aside className="border-l border-border pl-6 md:col-span-5">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">Currently learning</p>
           <div className="mt-5 grid grid-cols-2 gap-px bg-border">
-            {["Python", "C / C++", "DSA", "Git / GitHub", "AI", "Machine Learning"].map((item) => (
+            {["Python", "C", "DSA", "Git / GitHub", "AI", "Machine Learning"].map((item) => (
               <div key={item} className="bg-background px-3 py-3 font-mono text-xs text-foreground">{item}</div>
             ))}
           </div>
@@ -318,7 +320,7 @@ function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl scroll-mt-28 border-t border-border/70 px-6 py-20 sm:py-24">
       <SectionHeading number="02" title="Technology ecosystem" meta="Capabilities" />
-      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {skillGroups.map((group, index) => {
           const Icon = skillIcons[index % skillIcons.length] ?? Code2;
           return (
@@ -471,23 +473,52 @@ function Education() {
   );
 }
 
+function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <article
+          role="button"
+          tabIndex={0}
+          className="group cursor-pointer border border-border bg-surface p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/60"
+        >
+          <div className="flex items-center justify-between"><Award className="size-5 text-primary" /><span className="font-mono text-[10px] text-mist">// 0{index + 1}</span></div>
+          <h3 className="mt-8 font-display font-semibold leading-snug text-foreground">{cert.title}</h3>
+          <p className="mt-3 text-xs leading-relaxed text-mist">{cert.detail}</p>
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-primary">View certificate →</p>
+        </article>
+      </DialogTrigger>
+      <DialogContent className="max-h-[88vh] max-w-3xl overflow-y-auto border-border bg-background p-6 text-foreground sm:rounded-none">
+        <DialogHeader>
+          <DialogTitle className="font-display text-2xl">{cert.title}</DialogTitle>
+          <DialogDescription className="text-mist">{cert.detail}</DialogDescription>
+        </DialogHeader>
+        {cert.image && !failed ? (
+          <img
+            src={cert.image}
+            alt={`${cert.title} certificate`}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="mt-4 w-full border border-border"
+          />
+        ) : (
+          <p className="mt-6 border border-dashed border-border p-8 text-center font-mono text-xs uppercase tracking-widest text-mist">
+            Certificate image coming soon
+          </p>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function Certifications() {
-  const certifications = [
-    ["Secondary School Certificate", "2023"],
-    ["Senior Secondary School Certificate", "2025"],
-    ["ADCA Certification", "Advanced Diploma in Computer Applications"],
-    ["College Hackathon Participation", "Sityog Institute of Technology"],
-  ];
   return (
     <section className="mx-auto max-w-6xl border-t border-border/70 px-6 py-20 sm:py-24">
       <SectionHeading number="06" title="Credentials" meta="04 records" />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {certifications.map(([title, detail], index) => (
-          <article key={title} className="group border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60">
-            <div className="flex items-center justify-between"><Award className="size-5 text-primary" /><span className="font-mono text-[10px] text-mist">// 0{index + 1}</span></div>
-            <h3 className="mt-8 font-display font-semibold leading-snug text-foreground">{title}</h3>
-            <p className="mt-3 text-xs leading-relaxed text-mist">{detail}</p>
-          </article>
+        {certifications.map((cert, index) => (
+          <CertificationCard key={cert.title} cert={cert} index={index} />
         ))}
       </div>
     </section>
