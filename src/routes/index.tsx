@@ -35,6 +35,8 @@ import {
   education,
   portfolioLinks,
   projects,
+  certifications,
+  type Certification,
   skillGroups,
   type Project,
 } from "@/lib/portfolio-data";
@@ -300,7 +302,7 @@ function About() {
         <aside className="border-l border-border pl-6 md:col-span-5">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">Currently learning</p>
           <div className="mt-5 grid grid-cols-2 gap-px bg-border">
-            {["Python", "C / C++", "DSA", "Git / GitHub", "AI", "Machine Learning"].map((item) => (
+            {["Python", "C", "DSA", "Git / GitHub", "AI", "Machine Learning"].map((item) => (
               <div key={item} className="bg-background px-3 py-3 font-mono text-xs text-foreground">{item}</div>
             ))}
           </div>
@@ -318,7 +320,7 @@ function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl scroll-mt-28 border-t border-border/70 px-6 py-20 sm:py-24">
       <SectionHeading number="02" title="Technology ecosystem" meta="Capabilities" />
-      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {skillGroups.map((group, index) => {
           const Icon = skillIcons[index % skillIcons.length] ?? Code2;
           return (
