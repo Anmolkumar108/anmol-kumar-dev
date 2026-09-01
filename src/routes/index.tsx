@@ -259,7 +259,7 @@ function Hero() {
           {[
             ["BCA", "2025 — 2028"],
             ["8.81", "Current CGPA"],
-            ["02", "Major projects"],
+            ["03", "Major projects"],
             ["Python", "Primary language"],
           ].map(([value, label]) => (
             <div key={label} className="bg-surface/90 px-4 py-5 sm:px-5">
@@ -341,7 +341,7 @@ function Skills() {
 function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl scroll-mt-28 border-t border-border/70 px-6 py-20 sm:py-24">
-      <SectionHeading number="03" title="Selected case studies" meta="02 builds" />
+      <SectionHeading number="03" title="Selected case studies" meta="03 builds" />
       <div className="space-y-6">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} reverse={index % 2 === 1} />
