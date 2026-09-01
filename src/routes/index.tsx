@@ -68,6 +68,7 @@ const navItems = [
   ["Skills", "skills"],
   ["Projects", "projects"],
   ["Education", "education"],
+  ["Certificates", "certifications"],
   ["Contact", "contact"],
 ] as const;
 
@@ -514,7 +515,7 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
 
 function Certifications() {
   return (
-    <section className="mx-auto max-w-6xl border-t border-border/70 px-6 py-20 sm:py-24">
+    <section id="certifications" className="mx-auto max-w-6xl scroll-mt-28 border-t border-border/70 px-6 py-20 sm:py-24">
       <SectionHeading number="06" title="Credentials" meta="04 records" />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {certifications.map((cert, index) => (
